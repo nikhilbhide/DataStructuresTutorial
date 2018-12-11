@@ -23,10 +23,14 @@ public class BinarySearch {
 	}
 
 	public static void main(String[] args) {
-		Integer[] array = {10,-100,50,-50,60,-80};
+		Integer[] array = {10,-100,50,-50,60,-80,40,30,70,90,55,58,62};
 		BinarySearch instance = new BinarySearch(array);
 		instance.searchNum(20);
 		instance.searchNum(-100);
+		instance.traversal();
+		instance.traversal();
+		instance.delete(instance.getRoot(), 60);
+		System.out.println("After delete");
 		instance.traversal();
 		//Integer[] sortedArray = {-100,-50,-80,10,50,60};
 
@@ -143,5 +147,29 @@ public class BinarySearch {
 				levelTraversal(nodeQueue,resultList);
 			}
 		}
+	}
+
+	public Node delete(Node currentNode, int num) {
+		if(currentNode==null)
+			return currentNode;
+		else if(currentNode.getElement()>num) {
+			currentNode.setLeft(delete(currentNode.getLeft(),num));
+		}
+		else if(currentNode.getElement()<num) {
+			currentNode.setRight(delete(currentNode.getRight(),num));
+		}
+		else {
+			if (currentNode.getLeft()==null) {
+				return currentNode.getRight();
+			}
+			else if(currentNode.getLeft()==null) {
+				return currentNode.getLeft();
+			}
+			else {
+				currentNode.setElement(currentNode.getRight().getMin());
+				currentNode.setRight(delete(currentNode.getRight(),currentNode.getElement()));
+			}
+		}
+		return currentNode;
 	}
 }

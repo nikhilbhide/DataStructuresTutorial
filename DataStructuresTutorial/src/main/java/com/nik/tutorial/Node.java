@@ -26,6 +26,14 @@ public class Node {
 		}
 		return true;
 	}
+	
+	public int getMin() {
+		if(this.left!=null) {
+			return this.getLeft().getMin();
+		}
+		else 
+			return this.element;
+	}
 
 	Integer element = null;
 	public Integer getElement() {

@@ -5,6 +5,7 @@
 	<groupId>com.nik.ds.algo</groupId>
 	<artifactId>ArrayDemo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>ArrayDemo</name>
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
