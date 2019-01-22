@@ -79,4 +79,34 @@ public class LinkedListAlgos {
 		}
 		return firstCounter;
 	}
+
+	/**
+	 * Find the nth node from the last node of the linked list.
+	 * Find the length of the linked list and then starts traverse from root node for length - n + 1 nodes.
+	 * 
+	 * @param n The nth position from the end of the linked list
+	 * 
+	 * @return The nth node from the last node of the linked list
+	 */
+	public Node findNthNodeFromEnd(int n) {
+		int size = 0;
+		Node currentNode = getRoot();
+
+		while(currentNode.getNext()!=null) {
+			currentNode = currentNode.getNext();
+			size ++;
+		}
+
+		//traverse from the front and traverse for (length - n + 1) 
+		int traversalLength = size - n+1;
+		int counter = 0;
+		currentNode = getRoot();
+
+		while(counter<traversalLength) {
+			currentNode = currentNode.getNext();
+			counter++;
+		}
+		
+		return currentNode;
+	}
 }

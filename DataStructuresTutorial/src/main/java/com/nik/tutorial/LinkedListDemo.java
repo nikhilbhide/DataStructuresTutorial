@@ -13,8 +13,5 @@ public class LinkedListDemo {
 			System.out.println("No is " + num);
 		}
 		list.forEach(n->System.out.println("Num is "+n));
-		
-		//list.stream().reduce(accumulator)
 	}
-
 }
